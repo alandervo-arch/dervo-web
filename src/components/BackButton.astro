@@ -1,0 +1,13 @@
+<button class="page-back-arrow" data-back-btn aria-label="Volver" title="Volver">←</button>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-back-btn]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = '/';
+      }
+    });
+  });
+</script>

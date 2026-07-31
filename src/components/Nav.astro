@@ -1,0 +1,42 @@
+---
+interface Props {
+  current: 'home' | 'planes' | 'ablandadores' | 'contacto';
+}
+const { current } = Astro.props;
+---
+
+<nav>
+  <a class="nav-brand" href="/">ALQUILERES <span>DERVO</span></a>
+  <ul class="nav-links">
+    <li><a href="/" aria-current={current === 'home' ? 'page' : undefined}>Inicio</a></li>
+    <li><a href="/planes" aria-current={current === 'planes' ? 'page' : undefined}>Productos</a></li>
+    <li><a class="nav-cta" href="/contacto" aria-current={current === 'contacto' ? 'page' : undefined}>Contacto</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">Inicio</a>
+  <a href="/planes">Productos</a>
+  <a href="/contacto">Contacto</a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('menuOverlay');
+
+  function closeMenu() {
+    menu?.classList.remove('open');
+    overlay?.classList.remove('open');
+  }
+  function toggleMenu() {
+    menu?.classList.toggle('open');
+    overlay?.classList.toggle('open');
+  }
+
+  hamburger?.addEventListener('click', toggleMenu);
+  overlay?.addEventListener('click', closeMenu);
+  window.addEventListener('scroll', closeMenu, { passive: true });
+</script>

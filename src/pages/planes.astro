@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import BackButton from '../components/BackButton.astro';
+import { Image } from 'astro:assets';
+import dispenser from '../assets/dispenser.png';
+import valvula from '../assets/valvula.jpg';
+import tanqueSalero from '../assets/tanque-salero.jpg';
+import tanqueResina from '../assets/tanque-resina.jpg';
+
+const partes = [
+  {
+    titulo: 'Válvula',
+    img: valvula,
+    alt: 'Válvula Clack de control automático',
+    parrafo:
+      'Clack es una compañía estadounidense con más de 50 años de antigüedad reconocida por sus válvulas robustas, confiables y tecnológicas, diseñadas para durar décadas con mínimo mantenimiento. Cada válvula es probada de fábrica con 100.000 ciclos de regeneración (aproximadamente 10 años de uso).',
+    intro: 'Cuentan con funcionalidades únicas que hacen que esta válvula sea tan prestigiosa. Algunas de estas son:',
+    items: [
+      'Cuenta con una batería de respaldo que mantiene el equipo funcionando hasta 8 horas en caso de un corte de luz.',
+      'Tiene una memoria permanente que permite guardar toda la configuración incluso si está desenchufada completamente. No es necesario reprogramar la válvula ante cualquier corte de luz.',
+      'La válvula calcula el momento exacto en que debe regenerar según la dureza del agua y la capacidad del ablandador. Al calcular el momento justo, ahorra sal y agua en cada ciclo.',
+      'Durante la regeneración, la válvula permite el paso de agua de todas formas. Nunca hay un corte de agua: siempre vas a tener acceso al agua, incluso mientras el equipo se está regenerando.',
+    ],
+  },
+  {
+    titulo: 'Tanque salero',
+    img: tanqueSalero,
+    alt: 'Tanque salero Clack',
+    parrafo: 'El tanque salero reforzado también es marca Clack. Están hechos con material robusto que permite una vida útil prolongada.',
+  },
+  {
+    titulo: 'Tanque de resina',
+    img: tanqueResina,
+    alt: 'Tanque de resina de fibra de vidrio',
+    parrafo: 'El tanque de resina está hecho con fibra de vidrio, un material duradero y confiable, perfecto para tanques de resina. Este está hecho con color negro evitando el paso de luz y evitando la formación de bacterias. La resina que contiene es de alta calidad, asegurando una filtración efectiva y eficiente.',
+  },
+];
+---
+
+<Layout
+  title="Productos — Alquileres Dervo"
+  description="Dispensers para locales, oficinas, edificios y empresas. Ablandadores a medida."
+  current="planes"
+>
+  <div class="page-header">
+    <BackButton />
+    <div class="page-eyebrow">Nuestros servicios</div>
+    <h2 class="page-title-text">Elegí tu producto</h2>
+    <p class="page-sub">Dispensers para locales, oficinas, edificios y empresas. Ablandadores a medida.</p>
+    <div style="margin-top:24px;">
+      <div class="product-switcher" id="psSwitcher">
+        <button class="ps-btn active" data-ps-tab="disp" id="psDisp">Dispensers</button>
+        <button class="ps-btn" data-ps-tab="abland" id="psAbland">Ablandadores</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISPENSERS CONTENT -->
+  <div class="ps-content active" id="ps-disp">
+    <div class="section">
+      <div class="section-label">Nuestro equipo</div>
+      <p style="font-size:13px;color:var(--lgrey);line-height:1.7;margin-bottom:20px;">Trabajamos con un único modelo de dispenser Frío/Caliente conectado a la red, de alta calidad. Teniendo en cuenta la cantidad de personas y la estructura del espacio adaptamos el plan correcto para vos. Hacemos planes para locales, clubes, oficinas, edificios, etc.</p>
+      <div style="max-width:380px; margin:0 auto;">
+        <div class="equipo-card premium">
+          <div class="equipo-foto has-photo">
+            <div class="foto-badge badge-premium">Nuestro Equipo</div>
+            <Image class="foto-real" src={dispenser} alt="Dispenser Frío / Caliente Ushuaia" width={280} />
+          </div>
+          <div class="equipo-info">
+            <div class="eq-name">Dispenser Frío / Caliente</div>
+            <div class="eq-sub">Conexión directa a la red de agua corriente</div>
+            <div class="eq-tags" style="margin-top:8px;"><span class="eq-tag">Sistema de filtración</span><span class="eq-tag">Agua fría</span><span class="eq-tag">Agua caliente</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:380px; margin:16px auto 0; text-align:center;">
+        <a class="btn-ghost" href="/contacto">Contactar →</a>
+      </div>
+    </div>
+    <div class="section" style="padding-top:0; border-top:1px solid rgba(255,255,255,0.05)">
+      <div class="section-label" style="margin-top:40px">¿Por qué Dervo?</div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-title">Sin cambio de bidones</div><div class="why-desc">Al estar conectado a la red, no tenés que cargar ni pagar bidones. Que el dispenser no te traiga preocupaciones.</div></div>
+        <div class="why-card"><div class="why-title">Nuestro equipo</div><div class="why-desc">Contamos con un equipo de servicio técnico entrenado y especializado en dispensers de agua listo para atender. Que el dispenser sea una solución, no un problema.</div></div>
+        <div class="why-card"><div class="why-title">El dispenser</div><div class="why-desc">Usamos un dispenser robusto con un diseño que eleva tu local. Está diseñado con una mecánica de bajo consumo eléctrico, permitiendo ahorrar dinero.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABLANDADORES CONTENT -->
+  <div class="ps-content" id="ps-abland">
+    <div class="section">
+      <div class="section-label teal-label">Nuestros equipos</div>
+      <div class="parts-list">
+        {partes.map((parte) => (
+          <div class="part-card">
+            <div class="part-photo">
+              <Image src={parte.img} alt={parte.alt} width={220} />
+            </div>
+            <div class="part-body">
+              <div class="part-title">{parte.titulo}</div>
+              <p class="part-text">{parte.parrafo}</p>
+              {parte.items && (
+                <>
+                  <p class="part-text" style="margin-top:12px;">{parte.intro}</p>
+                  <ul class="part-list">
+                    {parte.items.map((item) => <li>{item}</li>)}
+                  </ul>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style="margin-top:24px; text-align:center;">
+        <a class="btn-ghost" href="/contacto">Contactar →</a>
+      </div>
+    </div>
+
+    <div class="section" style="padding-top:0; border-top:1px solid rgba(255,255,255,0.05)">
+      <div class="section-label teal-label" style="margin-top:40px">Beneficios del ablandador</div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-title">Protege las instalaciones</div><div class="why-desc">Extiende la vida útil de cañerías, calderas y electrodomésticos hasta un 30%.</div></div>
+        <div class="why-card"><div class="why-title">Ahorro en mantenimiento</div><div class="why-desc">Menos reparaciones, menos productos antical y menor consumo energético en calderas.</div></div>
+        <div class="why-card"><div class="why-title">Agua más suave</div><div class="why-desc">Mejor para la piel, el pelo y la ropa. La diferencia se nota al instante.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<script>
+  const psTabs = document.querySelectorAll<HTMLButtonElement>('[data-ps-tab]');
+
+  function switchPS(id: string) {
+    document.querySelectorAll('.ps-content').forEach((p) => p.classList.remove('active'));
+    document.getElementById('ps-' + id)?.classList.add('active');
+    psTabs.forEach((b) => b.classList.remove('active', 'active-t'));
+    if (id === 'disp') document.getElementById('psDisp')?.classList.add('active');
+    else document.getElementById('psAbland')?.classList.add('active-t');
+  }
+
+  psTabs.forEach((btn) => {
+    btn.addEventListener('click', () => switchPS(btn.dataset.psTab!));
+  });
+
+  if (window.location.hash === '#ablandadores') {
+    switchPS('abland');
+  }
+</script>

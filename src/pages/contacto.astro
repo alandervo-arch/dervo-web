@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import BackButton from '../components/BackButton.astro';
+---
+
+<Layout
+  title="Contacto — Alquileres Dervo"
+  description="Escribinos o completá el formulario y te contactamos para coordinar una visita sin costo."
+  current="contacto"
+>
+  <div class="page-header">
+    <BackButton />
+    <div class="page-eyebrow">Hablemos</div>
+    <h2 class="page-title-text">Contacto</h2>
+    <p class="page-sub">No dudes en contactarnos.</p>
+  </div>
+  <div class="contact-layout">
+    <div>
+      <div class="contact-block"><div class="contact-block-label">WhatsApp</div><div class="contact-block-val"><a href="https://wa.me/5491168378065">+54 9 11 6837 8065</a></div></div>
+      <div class="contact-block"><div class="contact-block-label">Email</div><div class="contact-block-val"><a href="mailto:ventas@alquileresdervo.com">ventas@alquileresdervo.com</a></div></div>
+      <div class="contact-block"><div class="contact-block-label">Horario</div><div class="contact-block-val">Lunes a viernes, 9 a 18 hs</div></div>
+    </div>
+    <div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field"><label>Nombre</label><input type="text" placeholder="Tu nombre" required /></div>
+        <div class="form-row">
+          <div class="field"><label>Teléfono</label><input type="tel" id="telefono" placeholder="+54 9 11..." /></div>
+          <div class="field"><label>Email</label><input type="email" id="email" placeholder="tu@email.com" /></div>
+        </div>
+        <p id="contactRequiredError" style="display:none; font-size:12px; color:#ff8080;">Completá al menos un teléfono o un email para que podamos contactarte.</p>
+        <div class="field"><label>Mensaje</label><textarea placeholder="Contanos sobre tu espacio: tipo de inmueble, cantidad de personas o unidades, consultas..." required></textarea></div>
+        <button class="form-submit" type="submit">Enviar consulta →</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <strong>¡Consulta recibida!</strong> Te contactamos dentro de las próximas horas. También podés escribirnos directamente por WhatsApp al <strong>+54 9 11 6837 8065</strong>.
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  const success = document.getElementById('formSuccess');
+  const telefono = document.getElementById('telefono') as HTMLInputElement | null;
+  const email = document.getElementById('email') as HTMLInputElement | null;
+  const requiredError = document.getElementById('contactRequiredError');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const hasTelefono = !!telefono?.value.trim();
+    const hasEmail = !!email?.value.trim();
+
+    if (!hasTelefono && !hasEmail) {
+      if (requiredError) requiredError.style.display = 'block';
+      telefono?.focus();
+      return;
+    }
+    if (requiredError) requiredError.style.display = 'none';
+
+    form.style.display = 'none';
+    if (success) success.style.display = 'block';
+  });
+</script>

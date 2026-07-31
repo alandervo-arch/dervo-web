@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import BackButton from '../components/BackButton.astro';
+---
+
+<Layout
+  title="¿Qué es un ablandador? — Alquileres Dervo"
+  description="Qué es un ablandador de agua y para qué sirve."
+  current="ablandadores"
+>
+  <div class="page-header">
+    <BackButton />
+    <div class="page-eyebrow teal">Guía completa</div>
+    <h2 class="page-title-text">¿Qué es un ablandador?</h2>
+    <div style="margin-top:20px;">
+      <a class="btn-ghost" href="/planes#ablandadores" style="font-size:13px; padding:10px 20px;">← Ver ablandadores</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="abland-highlight">
+      <h3>¿Qué es y para qué sirve un ablandador?</h3>
+      <p>El agua de red en Buenos Aires tiene alta concentración de calcio y magnesio — lo que se llama "agua dura". Estos minerales son inofensivos para la salud pero devastadores para las instalaciones: forman sarro en cañerías, calderas, termotanques, lavarropas, lavavajillas y griferías, reduciendo su vida útil y aumentando el consumo energético. Un ablandador elimina esos minerales mediante resinas de intercambio iónico, extendiendo la vida útil de tus instalaciones y mejorando la calidad del agua en todo el edificio o local.</p>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center; padding:40px 0 8px; border-top:1px solid rgba(255,255,255,0.05); margin-top:40px;">
+      <div style="font-family:'Montserrat',sans-serif; font-size:20px; font-weight:800; color:var(--white); margin-bottom:10px;">¿Te interesa un ablandador para tu edificio o local?</div>
+      <p style="font-size:13px; color:var(--grey); margin-bottom:24px;">Coordinamos una visita sin costo para evaluar tu caso.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn-teal" href="/contacto">Consultá ahora →</a>
+        <a class="btn-ghost" href="/planes#ablandadores">Ver ablandadores →</a>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

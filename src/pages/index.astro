@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import dispenser from '../assets/dispenser.png';
+import ablandadorCombo from '../assets/ablandador-combo.jpg';
+---
+
+<Layout
+  title="Alquileres Dervo — Agua filtrada y ablandada para oficinas y edificios"
+  description="Dispensers de agua filtrada y ablandadores para oficinas y edificios en CABA."
+  current="home"
+>
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-circle"></div><div class="hero-bg-circle"></div>
+      <div class="hero-bg-circle"></div><div class="hero-bg-line"></div>
+    </div>
+    <div class="hero-eyebrow">Tratamiento de agua profesional</div>
+    <h1 class="hero-title">Agua pura.<br /><em>Sin complicaciones.</em></h1>
+    <p class="hero-sub">Dispensers de agua y ablandadores sin preocupaciones.</p>
+    <div class="hero-actions">
+      <a class="btn-ghost" href="/planes">Nuestros productos</a>
+      <a class="btn-primary" href="/contacto">Consultá ahora →</a>
+    </div>
+  </section>
+
+  <div class="home-products">
+    <div class="prod-tabs">
+      <button class="prod-tab active-tab" data-prod-tab="dispensers">Dispensers de agua</button>
+      <button class="prod-tab" data-prod-tab="ablandadores">Ablandadores de agua</button>
+    </div>
+
+    <div class="prod-panel active" id="prod-dispensers">
+      <div style="max-width:400px; margin:0 auto;">
+        <div class="equipo-card premium">
+          <div class="equipo-foto has-photo">
+            <div class="foto-badge badge-premium">Nuestro Equipo</div>
+            <Image class="foto-real" src={dispenser} alt="Dispenser Frío / Caliente Ushuaia" width={280} />
+          </div>
+          <div class="equipo-info">
+            <div class="eq-name">Dispenser Frío / Caliente</div>
+            <div class="eq-sub">Conexión directa a la red de agua corriente</div>
+            <div class="eq-tags" style="margin-top:8px;"><span class="eq-tag">Sistema de filtración</span><span class="eq-tag">Agua fría</span><span class="eq-tag">Agua caliente</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:20px; text-align:center;">
+        <a class="btn-ghost" href="/planes">Ver dispenser →</a>
+      </div>
+    </div>
+
+    <div class="prod-panel" id="prod-ablandadores">
+      <div class="abland-highlight">
+        <h3>¿Qué hace un ablandador de agua?</h3>
+        <p>El ablandador elimina el sarro (dureza) del agua aumentando la efectividad y vida útil de los lavavajillas, lavarropas y más electrodomésticos hasta un 30%. También aumenta la efectividad del jabón y evita incrustaciones en cañerías. Protege al cuerpo de la dureza, haciendo la piel y el pelo más suave.</p>
+      </div>
+      <div style="max-width:420px; margin:0 auto;">
+        <div class="equipo-card teal-card">
+          <div class="equipo-foto has-photo white-photo">
+            <Image class="foto-real" src={ablandadorCombo} alt="Ablandador con tanque de resina, válvula Clack y tanque salero" height={220} />
+          </div>
+          <div class="equipo-info">
+            <div class="eq-name">Ablandador de agua</div>
+            <div class="eq-sub">Se evalúa la cantidad de sarro y la demanda de agua en cada caso y se determina el equipo correspondiente.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:20px; text-align:center;">
+        <a class="btn-teal" href="/planes#ablandadores">Ver ablandadores →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-strip">
+    <div class="feature-item">
+      <div class="feature-title">Conectado a la red</div>
+      <div class="feature-desc">Sin bidones, sin entregas. Dispensers conectados directo a la canilla con filtros de alta calidad.</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-title">Ablandadores residenciales e industriales</div>
+      <div class="feature-desc">Elimina el sarro y protegé las cañerías y electrodomésticos.</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-title">Soporte técnico</div>
+      <div class="feature-desc">Contamos con un equipo de soporte técnico profesional listo para atender.</div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('[data-prod-tab]');
+  tabs.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.prodTab;
+      document.querySelectorAll('.prod-panel').forEach((p) => p.classList.remove('active'));
+      document.getElementById('prod-' + id)?.classList.add('active');
+      tabs.forEach((b) => b.classList.remove('active-tab', 'active-teal'));
+      btn.classList.add(id === 'dispensers' ? 'active-tab' : 'active-teal');
+    });
+  });
+</script>
