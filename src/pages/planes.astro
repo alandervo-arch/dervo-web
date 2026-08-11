@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import BackButton from '../components/BackButton.astro';
 import { Image } from 'astro:assets';
 import dispenser from '../assets/dispenser.png';
-import valvula from '../assets/valvula.jpg';
+import valvula from '../assets/valvula.png';
 import tanqueSalero from '../assets/tanque-salero.jpg';
 import tanqueResina from '../assets/tanque-resina.jpg';
 
@@ -70,7 +70,7 @@ const partes = [
           <div class="equipo-info">
             <div class="eq-name">Dispenser Frío / Caliente</div>
             <div class="eq-sub">Conexión directa a la red de agua corriente</div>
-            <div class="eq-tags" style="margin-top:8px;"><span class="eq-tag">Sistema de filtración</span><span class="eq-tag">Agua fría</span><span class="eq-tag">Agua caliente</span></div>
+            <div class="eq-tags" style="margin-top:8px;"><span class="eq-tag">Filtros de alta calidad</span><span class="eq-tag">Agua fría</span><span class="eq-tag">Agua caliente</span></div>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@ const partes = [
       <div class="why-grid">
         <div class="why-card"><div class="why-title">Sin cambio de bidones</div><div class="why-desc">Al estar conectado a la red, no tenés que cargar ni pagar bidones. Que el dispenser no te traiga preocupaciones.</div></div>
         <div class="why-card"><div class="why-title">Nuestro equipo</div><div class="why-desc">Contamos con un equipo de servicio técnico entrenado y especializado en dispensers de agua listo para atender. Que el dispenser sea una solución, no un problema.</div></div>
-        <div class="why-card"><div class="why-title">El dispenser</div><div class="why-desc">Usamos un dispenser robusto con un diseño que eleva tu local. Está diseñado con una mecánica de bajo consumo eléctrico, permitiendo ahorrar dinero.</div></div>
+        <div class="why-card"><div class="why-title">El dispenser</div><div class="why-desc">Usamos un dispenser robusto y de alta calidad, con un diseño que eleva tu local. Está diseñado con una mecánica de bajo consumo eléctrico, permitiendo ahorrar dinero.</div></div>
       </div>
     </div>
   </div>
@@ -91,7 +91,7 @@ const partes = [
   <!-- ABLANDADORES CONTENT -->
   <div class="ps-content" id="ps-abland">
     <div class="section">
-      <div class="section-label teal-label">Nuestros equipos</div>
+      <div class="section-label">Nuestros equipos</div>
       <div class="parts-list">
         {partes.map((parte) => (
           <div class="part-card">
@@ -119,9 +119,9 @@ const partes = [
     </div>
 
     <div class="section" style="padding-top:0; border-top:1px solid rgba(255,255,255,0.05)">
-      <div class="section-label teal-label" style="margin-top:40px">Beneficios del ablandador</div>
+      <div class="section-label" style="margin-top:40px">Beneficios del ablandador</div>
       <div class="why-grid">
-        <div class="why-card"><div class="why-title">Protege las instalaciones</div><div class="why-desc">Extiende la vida útil de cañerías, calderas y electrodomésticos hasta un 30%.</div></div>
+        <div class="why-card"><div class="why-title">Protege las instalaciones</div><div class="why-desc">Extiende la vida útil de cañerías, calderas y electrodomésticos.</div></div>
         <div class="why-card"><div class="why-title">Ahorro en mantenimiento</div><div class="why-desc">Menos reparaciones, menos productos antical y menor consumo energético en calderas.</div></div>
         <div class="why-card"><div class="why-title">Agua más suave</div><div class="why-desc">Mejor para la piel, el pelo y la ropa. La diferencia se nota al instante.</div></div>
       </div>

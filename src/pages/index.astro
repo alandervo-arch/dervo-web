@@ -26,48 +26,42 @@ import ablandadorCompleto from '../assets/ablandador-completo.png';
   </section>
 
   <div class="home-products">
-    <div class="prod-tabs">
-      <button class="prod-tab active-tab" data-prod-tab="dispensers">Dispensers de agua</button>
-      <button class="prod-tab" data-prod-tab="ablandadores">Ablandadores de agua</button>
-    </div>
-
-    <div class="prod-panel active" id="prod-dispensers">
-      <div style="max-width:400px; margin:0 auto;">
-        <div class="equipo-card premium">
-          <div class="equipo-foto has-photo">
-            <div class="foto-badge badge-premium">Nuestro Equipo</div>
-            <Image class="foto-real" src={dispenser} alt="Dispenser Frío / Caliente Ushuaia" width={280} />
-          </div>
-          <div class="equipo-info">
-            <div class="eq-name">Dispenser Frío / Caliente</div>
-            <div class="eq-sub">Conexión directa a la red de agua corriente</div>
-            <div class="eq-tags" style="margin-top:8px;"><span class="eq-tag">Sistema de filtración</span><span class="eq-tag">Agua fría</span><span class="eq-tag">Agua caliente</span></div>
+    <div class="equipos-grid">
+      <div class="prod-panel active">
+        <div class="home-equipo-wrap">
+          <div class="equipo-card premium">
+            <div class="equipo-foto has-photo">
+              <div class="foto-badge badge-premium">Nuestro Equipo</div>
+              <Image class="foto-real" src={dispenser} alt="Dispenser Frío / Caliente Ushuaia" width={280} />
+            </div>
+            <div class="equipo-info">
+              <div class="eq-name">Dispenser Frío / Caliente</div>
+              <div class="eq-sub">Conexión directa a la red de agua corriente</div>
+              <div class="eq-tags" style="margin-top:8px;"><span class="eq-tag">Filtros de alta calidad</span><span class="eq-tag">Agua fría</span><span class="eq-tag">Agua caliente</span></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div style="margin-top:20px; text-align:center;">
-        <a class="btn-ghost" href="/planes">Ver dispenser →</a>
-      </div>
-    </div>
-
-    <div class="prod-panel" id="prod-ablandadores">
-      <div class="abland-highlight">
-        <h3>¿Qué hace un ablandador de agua?</h3>
-        <p>El ablandador elimina el sarro (dureza) del agua aumentando la efectividad y vida útil de los lavavajillas, lavarropas y más electrodomésticos hasta un 30%. También aumenta la efectividad del jabón y evita incrustaciones en cañerías. Protege al cuerpo de la dureza, haciendo la piel y el pelo más suave.</p>
-      </div>
-      <div style="max-width:420px; margin:0 auto;">
-        <div class="equipo-card teal-card">
-          <div class="equipo-foto has-photo">
-            <Image class="foto-real" src={ablandadorCompleto} alt="Ablandador con tanque de resina, válvula Clack y tanque salero" width={220} />
-          </div>
-          <div class="equipo-info">
-            <div class="eq-name">Ablandador de agua</div>
-            <div class="eq-sub">Se evalúa la cantidad de sarro y la demanda de agua en cada caso y se determina el equipo correspondiente.</div>
-          </div>
+        <div style="margin-top:20px; text-align:center;">
+          <a class="btn-ghost" href="/planes">Ver dispenser →</a>
         </div>
       </div>
-      <div style="margin-top:20px; text-align:center;">
-        <a class="btn-teal" href="/planes#ablandadores">Ver ablandadores →</a>
+
+      <div class="prod-panel active">
+        <div class="home-equipo-wrap">
+          <div class="equipo-card premium">
+            <div class="equipo-foto has-photo">
+              <div class="foto-badge badge-premium">Nuestro Equipo</div>
+              <Image class="foto-real" src={ablandadorCompleto} alt="Ablandador con tanque de resina, válvula Clack y tanque salero" width={220} />
+            </div>
+            <div class="equipo-info">
+              <div class="eq-name">Ablandador de agua</div>
+              <div class="eq-sub">Se evalúa la cantidad de sarro y la demanda de agua en cada caso y se determina el equipo correspondiente.</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:20px; text-align:center;">
+          <a class="btn-ghost" href="/planes#ablandadores">Ver ablandadores →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -90,15 +84,11 @@ import ablandadorCompleto from '../assets/ablandador-completo.png';
   <Footer />
 </Layout>
 
-<script>
-  const tabs = document.querySelectorAll<HTMLButtonElement>('[data-prod-tab]');
-  tabs.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const id = btn.dataset.prodTab;
-      document.querySelectorAll('.prod-panel').forEach((p) => p.classList.remove('active'));
-      document.getElementById('prod-' + id)?.classList.add('active');
-      tabs.forEach((b) => b.classList.remove('active-tab', 'active-teal'));
-      btn.classList.add(id === 'dispensers' ? 'active-tab' : 'active-teal');
-    });
-  });
-</script>
+<style>
+  .home-equipo-wrap { max-width:564px; margin:0 auto; }
+  .home-equipo-wrap :global(.equipo-card) { height:449px; display:flex; flex-direction:column; }
+  .home-equipo-wrap :global(.equipo-foto.has-photo) { height:316px; padding:25px 0; flex-shrink:0; box-sizing:border-box; }
+  .home-equipo-wrap :global(.equipo-info) { flex:1; display:flex; flex-direction:column; justify-content:center; }
+  .home-equipo-wrap :global(.eq-name) { font-size:18px; }
+  .home-equipo-wrap :global(.eq-sub) { font-size:14px; }
+</style>

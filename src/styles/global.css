@@ -103,7 +103,7 @@ main { display:block; min-height:100vh; padding-top:64px; width:100%; }
 .product-switcher { display:flex; gap:0; border:1px solid rgba(46,124,246,0.2); border-radius:10px; overflow:hidden; max-width:420px; }
 .ps-btn { flex:1; padding:12px 16px; font-size:13px; font-weight:600; cursor:pointer; border:none; background:transparent; color:var(--lgrey); transition:0.2s; font-family:'Inter',sans-serif; }
 .ps-btn.active { background:var(--bright); color:white; }
-.ps-btn.active-t { background:var(--teal); color:white; }
+.ps-btn.active-t { background:var(--bright); color:white; }
 .ps-content { display:none; }
 .ps-content.active { display:block; }
 
@@ -161,7 +161,7 @@ main { display:block; min-height:100vh; padding-top:64px; width:100%; }
 .part-text { font-size:13px; color:var(--lgrey); line-height:1.8; }
 .part-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:14px; }
 .part-list li { font-size:13px; color:var(--lgrey); line-height:1.7; display:flex; align-items:flex-start; gap:8px; }
-.part-list li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; }
+.part-list li::before { content:'✓'; color:var(--bright); font-weight:700; flex-shrink:0; }
 
 /* FAQ */
 .faq-item { border-bottom:1px solid rgba(255,255,255,0.06); padding:18px 0; cursor:pointer; }
